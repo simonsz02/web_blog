@@ -3,8 +3,8 @@ from flask import Flask, render_template, request, session
 
 # object of the Flask class
 # __name__ is a built-in variable in python. It contains: "__main__"
-from src.common.database import Database
-from src.models.user import User
+from web_blog.src.common.database import Database
+from web_blog.src.models.user import User
 
 app = Flask(__name__)
 
@@ -37,6 +37,7 @@ def login_user():
         User.login(email)
 
     return render_template('profile.html', email=session['email'])
+
 
 if __name__ == "__main__":
     app.run(debug=True)
