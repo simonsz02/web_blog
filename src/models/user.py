@@ -40,6 +40,8 @@ class User(object):
             # User doesn't exists, so we can create it
             new_user = cls(email, password)
             new_user.save_to_mongo()
+
+            # Add user's email to the session
             session['email'] = email
             return True
         else:
